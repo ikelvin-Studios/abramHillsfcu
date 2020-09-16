@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpInterpreters">
+    <interpreters>
+      <interpreter home="sftp://root@localhost:22/usr/bin/php" id="b9aac865-65cc-47f3-9386-2fdf329027d8" name="Remote PHP" debugger_id="php.debugger.XDebug">
+        <remote_data WEB_SERVER_CONFIG_ID="f3c139e9-637d-4ed8-9bc9-65c0f7a2fde4" WEB_SERVER_CONFIG_NAME="localSFTP" WEB_SERVER_CREDENTIALS_ID="sftp://root@localhost:22" INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="" INITIALIZED="false" VALID="true" />
+      </interpreter>
+    </interpreters>
+  </component>
+</project>

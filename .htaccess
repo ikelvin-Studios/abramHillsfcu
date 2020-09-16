@@ -1,0 +1,15 @@
+    ErrorDocument 404 /404.php
+    <IfModule mod_rewrite.c>
+    # Force Https
+    #RewriteEngine On
+    #RewriteCond %{HTTPS} !=on
+    #RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteEngine On
+    RewriteCond %{SCRIPT_FILENAME} !-f
+    RewriteCond %{SCRIPT_FILENAME} !-d
+	
+	RewriteRule ^ref/([a-zA-Z0-9._-]+)$ pages/register.php?ref=$1 [NC,L]
+	RewriteRule ^developer$ http://facebook.com/adesanoye.adeleye.9 [NC,L]
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [L,QSA]
+	</IfModule>

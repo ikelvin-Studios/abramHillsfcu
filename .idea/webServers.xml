@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0c38f628-ffe4-4f60-b97b-d27cd31e8a43" name="localhost" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\matrix" accessType="MOUNT" />
+      </webServer>
+      <webServer id="f3c139e9-637d-4ed8-9bc9-65c0f7a2fde4" name="localSFTP" url="http://localhost">
+        <fileTransfer host="localhost" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
