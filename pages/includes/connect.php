@@ -3,18 +3,18 @@ session_start();
 
 //ON SERVER
 
-// $db_host ="localhost";
-// $db_user="ourcomunmmy_nester";
-// $db_pass="Pa55w0rd41#";
-// $db_name="ourcomunmmy_abramfcu";
+$db_host ="localhost";
+$db_user="ourcomunmmy_nester";
+$db_pass="Pa55w0rd41#";
+$db_name="ourcomunmmy_abramfcu";
 
 
 // Development
-
-$db_host ="localhost";
-$db_user="root";
-$db_pass="";
-$db_name="ourcomunmmy_abramfcu";
+//
+// $db_host ="localhost";
+// $db_user="root";
+// $db_pass="";
+// $db_name="ourcomunmmy_abramfcu";
 
 //error_reporting(E_ALL);
 error_reporting(0);
