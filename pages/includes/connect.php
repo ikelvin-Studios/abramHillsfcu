@@ -1,21 +1,21 @@
-<?php 
+<?php
 session_start();
 
 //ON SERVER
 
-$db_host ="localhost";
-$db_user="ourcomunmmy_nester";
-$db_pass="Pa55w0rd41#";
-$db_name="ourcomunmmy_abramfcu";
+// $db_host ="localhost";
+// $db_user="ourcomunmmy_nester";
+// $db_pass="Pa55w0rd41#";
+// $db_name="ourcomunmmy_abramfcu";
 
 
 // Development
-/*
+
 $db_host ="localhost";
 $db_user="root";
 $db_pass="";
 $db_name="ourcomunmmy_abramfcu";
-*/
+
 //error_reporting(E_ALL);
 error_reporting(0);
 date_default_timezone_set('Africa/Accra');
@@ -27,7 +27,7 @@ if (mysqli_connect_error()) {
 }
 
 else {
-	
+
 
 $powersiteq = mysqli_query($con,"select * from site_tb where auth = 'yes' ");
 $powersite = mysqli_fetch_array($powersiteq);
@@ -41,7 +41,7 @@ $base_url = "http://localhost/banking/";
 // $powercoin = mysqli_fetch_array($powercoinq);
 
 // $powerseperationq = mysqli_query($con,"select * from `seperation_tb` where `status` = 'active' ");
-	
+
 // $powerseperation = mysqli_fetch_array($powerseperationq);
 
 // $site_cat = $powerseperation['type'];
@@ -83,7 +83,7 @@ $base_url = "http://localhost/banking/";
 
   	    $transcheckq = mysqli_query($con,"SELECT * FROM `transact_tb` WHERE dir != 0");
   	    $transcountn = mysqli_num_rows($transcheckq);
-		
+
 		// $momocheckq = mysqli_query($con,"select * from mtn_momo where wallet = '$userid'");
   //       $momofetch = mysqli_fetch_array($momocheckq);
 
@@ -91,8 +91,8 @@ $base_url = "http://localhost/banking/";
 		$updater = 0;
 	}
 
-	
-	
+
+
 
 
 
@@ -103,9 +103,9 @@ $base_url = "http://localhost/banking/";
 <?php include ('reply_api.php');
 
 $sms_source = "AndrewsFCU";
-	
+
 	$sms_type = 0;
-	
+
 /* kjw@acm.org
 
 damasktb
