@@ -28,9 +28,9 @@ if (mysqli_connect_error()) {
 
 else {
 
-$base_url = "http://localhost/abramHillsfcu/";
+// $base_url = "http://localhost/abramHillsfcu/";
 
-// $base_url = "https://abramhillsfcu.com";
+$base_url = "https://abramhillsfcu.com";
 
 
 // $powercoinq = mysqli_query($con,"select * from coin_settings where is_activated = 'yes' ");
