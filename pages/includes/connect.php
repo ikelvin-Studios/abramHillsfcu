@@ -58,34 +58,30 @@ $base_url = "http://localhost/abramHillsfcu/";
 	if($_SESSION){
 		$userid =  $_SESSION['userid'];
 
-		$powersiteq = mysqli_query($con,"SELECT * from site_tb where auth = 'yes' AND `admin` = '$userid'");
-		$powersite = mysqli_fetch_array($powersiteq);
+		if ($_SESSION['login_type'] == "user") {
+			$poweruserq = mysqli_query($con,"SELECT * FROM `db_users_tb` WHERE `acc_user` = '$userid' ");
+			$poweruser = mysqli_fetch_array($poweruserq);
+			$sec_qn1 = $poweruser['qn1'];
+			$ans_qn1 = $poweruser['qn1_ans'];
+			$sec_qn2 = $poweruser['qn2'];
+			$ans_qn2 = $poweruser['qn2_ans'];
 
-		// $powerwalletq = mysqli_query($con,"select * from wallet where wallet = '$userid' ");
-		// $powerwallet = mysqli_fetch_array($powerwalletq);
+			$powerid = $poweruser['dir'];
+			$powerpin = $poweruser['acc_pin'];
+			$power_has_invest = $poweruser['has_invest'];
+			//$power_has_invest = "no";
 
-		$poweruserq = mysqli_query($con,"SELECT * FROM `db_users_tb` WHERE `acc_user` = '$userid' ");
-		$poweruser = mysqli_fetch_array($poweruserq);
-		$sec_qn1 = $poweruser['qn1'];
-		$ans_qn1 = $poweruser['qn1_ans'];
-		$sec_qn2 = $poweruser['qn2'];
-		$ans_qn2 = $poweruser['qn2_ans'];
+		} elseif ($_SESSION['login_type'] == "admin") {
 
-		$powerid = $poweruser['dir'];
-		$powerpin = $poweruser['acc_pin'];
-		$power_has_invest = $poweruser['has_invest'];
-		//$power_has_invest = "no";
+			$powersiteq = mysqli_query($con,"SELECT * from site_tb where auth = 'yes' AND `admin` = '$userid'");
+			$powersite = mysqli_fetch_array($powersiteq);
 
-		// $user_phone = $poweruser['mobile'];
+			$usercheckq = mysqli_query($con,"SELECT * FROM `db_users_tb` WHERE dir != 0 AND `admin`= '$userid'");
+  	  $usercountn = mysqli_num_rows($usercheckq);
 
-		$usercheckq = mysqli_query($con,"SELECT * FROM `db_users_tb` WHERE dir != 0");
-  	    $usercountn = mysqli_num_rows($usercheckq);
-
-  	    $transcheckq = mysqli_query($con,"SELECT * FROM `transact_tb` WHERE dir != 0");
-  	    $transcountn = mysqli_num_rows($transcheckq);
-
-		// $momocheckq = mysqli_query($con,"select * from mtn_momo where wallet = '$userid'");
-  //       $momofetch = mysqli_fetch_array($momocheckq);
+  	  $transcheckq = mysqli_query($con,"SELECT * FROM `transact_tb` WHERE dir != 0");
+  	  $transcountn = mysqli_num_rows($transcheckq);
+		}
 
 		$stop = 0;
 		$updater = 0;
