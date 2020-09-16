@@ -28,7 +28,7 @@ if (mysqli_connect_error()) {
 
 else {
 
-$base_url = "http://localhost/banking/";
+$base_url = "http://localhost/abramHillsfcu/";
 
 // $base_url = "https://abramhillsfcu.com";
 
