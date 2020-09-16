@@ -25,7 +25,7 @@
 
     $generated_pin = rand(100000,999999);
     return $generated_pin;
- 
+
     }
 
 if (isset($_POST['add_submit'])) {
@@ -64,8 +64,8 @@ if (isset($_POST['update_submit'])) {
     $pay_type = $_POST['pay_type'];
     $value = $_POST['value'];
     $date = $_POST['date'];
-   
-    
+
+
 
     $up_query = mysqli_query($con,"UPDATE `transact_tb` SET `bankname` = '$bankname', `description` = '$description', `pay_type` = '$pay_type', `value` = '$value', `date` = '$date' WHERE `transact_tb`.`dir` = '$trans_id';") or die(mysqli_error($con));
 
@@ -89,7 +89,7 @@ if (isset($_GET['edit_submit'])) {
     if(mysqli_num_rows($edit_q) > 0){
 
         $edit = mysqli_fetch_array($edit_q);
-		
+
 		$bankname = $edit['bankname'];
         $description = $edit['description'];
         //$process_method = $edit['process_method'];
@@ -185,11 +185,11 @@ if (isset($_GET['delete_submit'])) {
             </div>
             <!-- /.row -->
             <div class="row">
-               
+
             </div>
             <!-- /.row -->
             <div class="row">
-                
+
                 <!-- /.col-lg-8 -->
                 <div class="col-lg-4">
                     <div class="panel panel-default" id="account">
@@ -200,9 +200,9 @@ if (isset($_GET['delete_submit'])) {
                         <div class="panel-body">
                             <div class="list-group">
                                 <form action="transactions.php" method="post">
-								<div class="list-group-item">
+								                <div class="list-group-item">
                                    <input class="form-control" placeholder="Bank Name" name="bankname" type="text" autofocus autocomplete="off" value="<?= $bankname ?>">
-                                </div> 
+                                </div>
 
                                 <div class="list-group-item">
                                     <label>Transaction Info</label>
@@ -210,11 +210,11 @@ if (isset($_GET['delete_submit'])) {
                                 </div>
                                  <div class="list-group-item">
                                    <input class="form-control" placeholder="Value" name="value" type="text" autofocus autocomplete="off" value="<?= $value ?>">
-                                </div> 
+                                </div>
                                 <!--<div class="list-group-item">
                                     <input class="form-control" placeholder="Account Balance" name="acc_balance" type="text" autofocus autocomplete="off" value="<?= $acc_balance ?>">
                                 </div> -->
-                                
+
                                 <div class="list-group-item">
                                     <label>Payment Type</label>
                                    <select class="form-control"  name="pay_type" >
@@ -226,10 +226,10 @@ if (isset($_GET['delete_submit'])) {
                                         echo "selected";
                                     }
                                     ?>>Pay Out</option>
-                                       
+
                                    </select>
                                 </div>
-                              
+
                                 <div class="list-group-item">
                                     <label>Transaction Date</label>
                                     <input class="form-control" placeholder="Date (dd/mm/yyyy)" name="date" type="date" autofocus autocomplete="off" value="<?= $end_date ?>">
@@ -241,7 +241,7 @@ if (isset($_GET['delete_submit'])) {
                                 </div>
                                 <?php }
                                  if ($updater == 1) { ?>
-                                
+
                                 <input type="hidden" name="trans_id" value="<?= $trans_id ?>">
                                  <div class="list-group-item">
                                   <input class="form-control" value="Update Transaction" name="update_submit" type="submit" autofocus autocomplete="off">
@@ -259,16 +259,16 @@ if (isset($_GET['delete_submit'])) {
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                    
-                </div> 
+
+                </div>
                 <!-- /.col-lg-4 -->
                 <div class="col-lg-8">
-                   
+
                     <!-- /.panel -->
                     <div class="panel panel-default" id="transactions">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i>Manage Transactions
-                           
+
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -278,7 +278,7 @@ if (isset($_GET['delete_submit'])) {
                                         <table id="dataTables-example" class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    
+
                                                     <th>Action</th>
                                                     <th>Date</th>
                                                     <th>Value</th>
@@ -287,7 +287,7 @@ if (isset($_GET['delete_submit'])) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php 
+                                                <?php
                                                 $i=1;
                                                     $query = mysqli_query($con,"SELECT * FROM `transact_tb`  WHERE `status` != 'deleted' AND `acc_dir` = '$target_id' order by dir asc");
 
@@ -302,19 +302,19 @@ if (isset($_GET['delete_submit'])) {
                                                             $status = $row['status'];
                                                             $trans_status = $row['trans_status'];
 
-                                                            
+
                                                             ?>
-                                                                                      
+
 
                                                 <tr>
                                                      <td> <!-- <form method="get" action="transactions.php">
                                                     <input type="hidden" name="wallet" value="<?php/* echo*/ $wallet ?>">
-                                                    
+
                                                     <input type="hidden" name="target_id" value="<?php /*echo */$id; ?>">
                                                     <input type="submit" name="trans_submit" value="Transactions" class="btn btn-info"></form> -->
 
                                                 <form method="get" action="transactions.php">
-                                                    
+
                                                     <input type="hidden" name="trans_id" value="<?= $id ?>">
                                                     <input type="hidden" name="target_id" value="<?= $target_id ?>">
 
@@ -357,7 +357,7 @@ if (isset($_GET['delete_submit'])) {
                                                     }
 
                                                 ?>
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -374,7 +374,7 @@ if (isset($_GET['delete_submit'])) {
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    
+
             </div>
 
 

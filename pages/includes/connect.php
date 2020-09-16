@@ -28,10 +28,6 @@ if (mysqli_connect_error()) {
 
 else {
 
-
-$powersiteq = mysqli_query($con,"select * from site_tb where auth = 'yes' ");
-$powersite = mysqli_fetch_array($powersiteq);
-
 $base_url = "http://localhost/banking/";
 
 // $base_url = "https://abramhillsfcu.com";
@@ -61,6 +57,10 @@ $base_url = "http://localhost/banking/";
 	// $reserved_bal=30;
 	if($_SESSION){
 		$userid =  $_SESSION['userid'];
+
+		$powersiteq = mysqli_query($con,"SELECT * from site_tb where auth = 'yes' AND `admin` = '$userid'");
+		$powersite = mysqli_fetch_array($powersiteq);
+
 		// $powerwalletq = mysqli_query($con,"select * from wallet where wallet = '$userid' ");
 		// $powerwallet = mysqli_fetch_array($powerwalletq);
 

@@ -51,7 +51,7 @@ if (isset($_POST['add_submit'])) {
 
 
 
-    $add_query = mysqli_query($con,"INSERT INTO `db_users_tb` (`acc_user`, `acc_pass`, `acc_name`, `acc_type`, `acc_num`, `acc_dob`, `acc_balance`, `has_invest`, `invest_revenue`, `invest_plan`, `country`, `state`, `region`, `city`, `reg_date`, `start_date`, `end_date`, `status`, `acc_pin`, `buyer`, `qn1`, `qn1_ans`, `qn2`, `qn2_ans`) VALUES ('$acc_user', '$acc_pass', '$acc_name', '$acc_type', '$acc_num', '$acc_dob', '$acc_balance', '$has_invest', '$invest_revenue', '$invest_plan', '$country', '$state', '$region', '$city', '$reg_date', '$start_date', '$end_date', '$status', '$acc_pin', '$buyer', '$qn1', '$qn1_ans', '$qn2', '$qn2_ans');") or die(mysqli_error($con));
+    $add_query = mysqli_query($con,"INSERT INTO `db_users_tb` (`acc_user`, `acc_pass`, `acc_name`, `acc_type`, `acc_num`, `acc_dob`, `acc_balance`, `has_invest`, `invest_revenue`, `invest_plan`, `country`, `state`, `region`, `city`, `reg_date`, `start_date`, `end_date`, `status`, `acc_pin`, `buyer`, `qn1`, `qn1_ans`, `qn2`, `qn2_ans`, `admin`) VALUES ('$acc_user', '$acc_pass', '$acc_name', '$acc_type', '$acc_num', '$acc_dob', '$acc_balance', '$has_invest', '$invest_revenue', '$invest_plan', '$country', '$state', '$region', '$city', '$reg_date', '$start_date', '$end_date', '$status', '$acc_pin', '$buyer', '$qn1', '$qn1_ans', '$qn2', '$qn2_ans', '$userid');") or die(mysqli_error($con));
 
     if($add_query){
         echo '<script>window.location.assign("manageusers.php");</script>';
@@ -98,10 +98,10 @@ if (isset($_POST['update_submit'])) {
 
 if (isset($_GET['edit_submit'])) {
 
-    
+
 
     $acc_id = $_GET['confirm_id'];
-    
+
 
 
 
@@ -125,10 +125,10 @@ if (isset($_GET['edit_submit'])) {
         $state = $edit['state'];
         $region = $edit['region'];
         $city = $edit['city'];
-        
+
         $end_date = $edit['end_date'];
-       
-        
+
+
         $acc_pin = $edit['acc_pin'];
         $buyer = $edit['buyer'];
         $qn1 = $edit['qn1'];
@@ -195,11 +195,11 @@ if (isset($_GET['disable_submit'])) {
             </div>
             <!-- /.row -->
             <div class="row">
-               
+
             </div>
             <!-- /.row -->
             <div class="row">
-                
+
                 <!-- /.col-lg-8 -->
                 <div class="col-lg-4">
                     <div class="panel panel-default" id="account">
@@ -212,18 +212,18 @@ if (isset($_GET['disable_submit'])) {
                                 <form action="manageusers.php" method="post">
                                 <div class="list-group-item">
                                    <input class="form-control" placeholder="Banking ID" name="acc_user" type="text" autofocus autocomplete="off" value="<?= $acc_user ?>">
-                                </div> 
+                                </div>
                                 <div class="list-group-item">
                                     <input class="form-control" placeholder="Password" name="acc_pass" type="text" autofocus autocomplete="off"  value="<?= $acc_pass ?>">
                                 </div>
                                 <div class="list-group-item">
                                     <input class="form-control" placeholder="Full Name" name="acc_name" type="text" autofocus autocomplete="off"  value="<?= $acc_name ?>">
                                 </div>
-                               
+
                                 <div class="list-group-item">
                                     <label>Account Type</label>
                                    <select class="form-control"  name="acc_type" >
-                                       <option value="Savings" 
+                                       <option value="Savings"
                                        <?php if ($acc_type == "Savings") {
                                         echo "selected";
                                     }
@@ -244,11 +244,11 @@ if (isset($_GET['disable_submit'])) {
                                 </div>
                                 <div class="list-group-item">
                                    <input class="form-control" placeholder="Account No." name="acc_num" type="text" autofocus autocomplete="off" value="<?= $acc_num ?>">
-                                </div> 
+                                </div>
                                 <div class="list-group-item">
                                     <input class="form-control" placeholder="Account Balance" name="acc_balance" type="text" autofocus autocomplete="off" value="<?= $acc_balance ?>">
                                 </div>
-                                
+
                                 <div class="list-group-item">
                                     <label>Has Investment</label>
                                    <select class="form-control"  name="has_invest" >
@@ -260,7 +260,7 @@ if (isset($_GET['disable_submit'])) {
                                         echo "selected";
                                     }
                                     ?>>No</option>
-                                       
+
                                    </select>
                                 </div>
                                 <div class="list-group-item">
@@ -269,7 +269,7 @@ if (isset($_GET['disable_submit'])) {
                                 <div class="list-group-item">
                                     <input class="form-control" placeholder="Investment Revenue" name="invest_revenue" type="text" autofocus autocomplete="off" value="<?= $invest_revenue ?>">
                                 </div>
-                                
+
                                 <div class="list-group-item">
                                     <label>Security QnA</label>
                                     <input class="form-control" placeholder="1st Question" name="qn1" type="text" autofocus autocomplete="off" value="<?= $qn1 ?>">
@@ -283,7 +283,7 @@ if (isset($_GET['disable_submit'])) {
                                 <div class="list-group-item">
                                     <input class="form-control" placeholder="2st Answer" name="qn2_ans" type="text" autofocus autocomplete="off" value="<?= $qn2_ans ?>">
                                 </div>
-                                
+
                                 <div class="list-group-item">
                                     <label>Location</label>
                                     <input class="form-control" placeholder="Country" name="country" type="text" autofocus autocomplete="off" value="<?= $country ?>">
@@ -297,7 +297,7 @@ if (isset($_GET['disable_submit'])) {
                                 <div class="list-group-item">
                                     <input class="form-control" placeholder="City" name="city" type="text" autofocus autocomplete="off" value="<?= $city ?>">
                                 </div>
-                                
+
                                 <div class="list-group-item">
                                     <label>Buyer Contract</label>
                                     <input class="form-control" placeholder="Buyer" name="buyer" type="text" autofocus autocomplete="off" value="<?= $buyer ?>">
@@ -328,8 +328,8 @@ if (isset($_GET['disable_submit'])) {
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                    
-                </div> 
+
+                </div>
                 <!-- /.col-lg-4 -->
                 <div class="col-lg-8">
                     <!-- <div class="panel panel-default" id="chart">
@@ -393,7 +393,7 @@ if (isset($_GET['disable_submit'])) {
                                         <table id="dataTables-example" class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    
+
                                                     <th>Action</th>
                                                     <th>End Date</th>
                                                     <th>Banking ID</th>
@@ -402,9 +402,9 @@ if (isset($_GET['disable_submit'])) {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php 
+                                                <?php
                                                 $i=1;
-                                                    $query = mysqli_query($con,"SELECT * FROM `db_users_tb`  WHERE `status` != 'deleted' order by dir desc");
+                                                    $query = mysqli_query($con,"SELECT * FROM `db_users_tb`  WHERE `status` != 'deleted' AND `admin` = '$userid' order by dir desc");
 
                                                     if(mysqli_num_rows($query)>0){
                                                         while($row = mysqli_fetch_array($query)){
@@ -414,18 +414,18 @@ if (isset($_GET['disable_submit'])) {
                                                             $acc_user = $row['acc_user'];
                                                             $pin = $row['acc_pin'];
                                                             $status = $row['status'];
-                                                            
+
                                                             ?>
-                                                                                      
+
 
                                                 <tr>
                                                      <td> <form method="get" action="transactions.php">
-                                                  
+
                                                     <input type="hidden" name="target_id" value="<?=$id?>">
                                                     <input type="submit" name="trans_submit" value="Transactions" class="btn btn-info"></form>
 
                                                 <form method="get" action="manageusers.php">
-                                                    
+
                                                     <input type="hidden" name="confirm_id" value="<?= $id ?>">
 
                                                     <input type="submit" name="edit_submit" value="Edit" class="btn btn-primary">
@@ -436,7 +436,7 @@ if (isset($_GET['disable_submit'])) {
                                                     <?php }
                                                      if ($status == "enabled") { ?>
                                                     <input type="submit" name="disable_submit" value="Disable" class="btn btn-warning">
-													
+
                                                     <?php  } ?>
                                                 </form> </td>
                                                     <td><?= $date ?></td>
@@ -461,7 +461,7 @@ if (isset($_GET['disable_submit'])) {
                                                     }
 
                                                 ?>
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -478,7 +478,7 @@ if (isset($_GET['disable_submit'])) {
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                   
+
                 </div> -->
             </div>
 
