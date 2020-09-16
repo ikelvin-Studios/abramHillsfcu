@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Sep 16, 2020 at 06:26 PM
--- Server version: 10.1.44-MariaDB-0ubuntu0.18.04.1
--- PHP Version: 7.3.20
+-- Host: 127.0.0.1
+-- Generation Time: Sep 16, 2020 at 09:45 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -54,25 +55,28 @@ CREATE TABLE `db_users_tb` (
   `qn2` varchar(100) NOT NULL,
   `qn2_ans` varchar(100) NOT NULL,
   `last_login` varchar(250) NOT NULL,
-  `trans_attempt` text NOT NULL
+  `trans_attempt` text NOT NULL,
+  `admin` varchar(30) NOT NULL DEFAULT 'admin'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `db_users_tb`
 --
 
-INSERT INTO `db_users_tb` (`dir`, `acc_user`, `acc_pass`, `acc_name`, `acc_type`, `acc_num`, `acc_dob`, `acc_balance`, `has_invest`, `invest_revenue`, `invest_plan`, `country`, `state`, `region`, `city`, `reg_date`, `start_date`, `end_date`, `status`, `acc_pin`, `buyer`, `qn1`, `qn1_ans`, `qn2`, `qn2_ans`, `last_login`, `trans_attempt`) VALUES
-(23, 'angela1414', 'angie1234', 'Angela Uttley', 'Savings', '1455811', '', '9,570,000.00', 'yes', '600,000.00', '401k', 'USA', '', '', '', '2019-11-01', '2019-11-01', '', 'deleted', 821795, '', 'High School friend', 'Anastasia', 'First car', 'Ford', '', ''),
-(24, 'Samantha22', 'Mac5050', 'Samantha Michaels', 'Savings', '672281', '', '9,389,211.00', 'yes', '720,276.00', '401K', 'USA', '', '', '', '', '2019-11-09', '', 'enabled', 413226, '', 'High School Friend?', 'Anastasia', 'First Car', 'Ford', '', ''),
-(25, 'micky6060', 'Tilden2010', 'Michael Tilden', 'Savings', '5909923', '', '8,049,229.00', 'yes', '230,003.00', '401K', 'USA', '', '', '', '2019-11-12', '2019-11-12', '', 'deleted', 605023, '', 'High School Friend ', 'William', 'First Car', 'Ford', '', ''),
-(26, 'marymat2020', 'Blessed1989', 'Mary Perez', 'Savings', '26706378', '', '3,100,107.00', 'yes', '210,889.00', '401k', 'USA', 'New York', '', '', '', '2019-11-18', '2019-11-17', 'deleted', 572892, '', 'First Car', 'Ford', 'High School Friend', 'Janet', '', ''),
-(27, 'bella1980', 'Blessed2020', 'Patience Isabella', 'Savings', '20307887', '', '3,056,708.00', 'yes', '200,000.00', '401k', 'USA', 'Oklahoma', '', '', '2019-12-02', '2019-12-02', '', 'disabled', 302619, '', 'First Car', 'Ford', 'High School Friend', 'Janet', '', ''),
-(28, 'Donna2010', 'Mcl5050', 'Donna McLaughlin', 'Savings', '5507331', '', '4,559,900', 'yes', '79,900', '401k', 'USA', '', '', '', '2019-12-25', '2019-12-25', '', 'deleted', 786681, '', 'Best friend name', 'Anastasia', 'First car', 'Ford', '', ''),
-(29, 'eemty8091', 'myeverything2992', 'Emily Lyons', 'Business', '90092785347626', '', '11,550,786.00', 'yes', '1,070.00', 'Investment', '', '', '', '', '', '2020-04-15', '', 'enabled', 403746, '', 'What is the name of your best friend in high school', 'Linda', 'What is the name of your favorite pet', 'Lori', '', ''),
-(30, 'abh203952', 'g746xq1', 'Susan K Heidlebaugh', 'Savings', '9016347213', '', '1,995.00', 'yes', '6,000,000.00', 'Bank Of America Investment', '', '', '', '', '', '2020-05-29', '', 'enabled', 463914, '', 'What is the first name of your best friend in high school', 'Sandy', 'What is your favorite color', 'Orange', '', ''),
-(31, 'marina123', 'Lovedad5050', 'Marina Warren', 'Savings', '5567899', '', '2,890,099.00', 'yes', '401k', '200,000.00', '', '', '', '', '', '2020-07-15', '2020-07-15', 'enabled', 261949, '', 'Your best friend name', 'Anastasia', 'Fathers middle name', 'Allen', '', ''),
-(32, 'Vera1985', 'Blessed2020', 'Vera Tennyson', 'Savings', '072978020201', '', '4,800,281.00', 'yes', '1,00.90', 'Investments ', 'United States Of Ame', 'Wyoming', '', '', '', '2020-07-24', '2020-07-21', 'enabled', 669977, 'Unilever Company Ltd', 'Name of first car', 'Corolla', 'Name of Childhood friend', 'Sandy', '', ''),
-(33, 'randy73', 'construction@77', 'Randy Fischer', 'Business', '1007686026', '', '900,789.00', 'yes', '2,508,000.00', 'Investment Plan', '', '', '', '', '2020-08-06', '2020-08-06', '', 'enabled', 336264, '', 'What is your best friend name in high school', 'Michael', 'What is the name of your first car', 'Ford', '', '');
+INSERT INTO `db_users_tb` (`dir`, `acc_user`, `acc_pass`, `acc_name`, `acc_type`, `acc_num`, `acc_dob`, `acc_balance`, `has_invest`, `invest_revenue`, `invest_plan`, `country`, `state`, `region`, `city`, `reg_date`, `start_date`, `end_date`, `status`, `acc_pin`, `buyer`, `qn1`, `qn1_ans`, `qn2`, `qn2_ans`, `last_login`, `trans_attempt`, `admin`) VALUES
+(23, 'angela1414', 'angie1234', 'Angela Uttley', 'Savings', '1455811', '', '9,570,000.00', 'yes', '600,000.00', '401k', 'USA', '', '', '', '2019-11-01', '2019-11-01', '', 'deleted', 821795, '', 'High School friend', 'Anastasia', 'First car', 'Ford', '', '', 'admin'),
+(24, 'Samantha22', 'Mac5050', 'Samantha Michaels', 'Savings', '672281', '', '9,389,211.00', 'yes', '720,276.00', '401K', 'USA', '', '', '', '', '2019-11-09', '', 'enabled', 413226, '', 'High School Friend?', 'Anastasia', 'First Car', 'Ford', '', '', 'admin'),
+(25, 'micky6060', 'Tilden2010', 'Michael Tilden', 'Savings', '5909923', '', '8,049,229.00', 'yes', '230,003.00', '401K', 'USA', '', '', '', '2019-11-12', '2019-11-12', '', 'deleted', 605023, '', 'High School Friend ', 'William', 'First Car', 'Ford', '', '', 'admin'),
+(26, 'marymat2020', 'Blessed1989', 'Mary Perez', 'Savings', '26706378', '', '3,100,107.00', 'yes', '210,889.00', '401k', 'USA', 'New York', '', '', '', '2019-11-18', '2019-11-17', 'deleted', 572892, '', 'First Car', 'Ford', 'High School Friend', 'Janet', '', '', 'admin'),
+(27, 'bella1980', 'Blessed2020', 'Patience Isabella', 'Savings', '20307887', '', '3,056,708.00', 'yes', '200,000.00', '401k', 'USA', 'Oklahoma', '', '', '2019-12-02', '2019-12-02', '', 'disabled', 302619, '', 'First Car', 'Ford', 'High School Friend', 'Janet', '', '', 'admin'),
+(28, 'Donna2010', 'Mcl5050', 'Donna McLaughlin', 'Savings', '5507331', '', '4,559,900', 'yes', '79,900', '401k', 'USA', '', '', '', '2019-12-25', '2019-12-25', '', 'deleted', 786681, '', 'Best friend name', 'Anastasia', 'First car', 'Ford', '', '', 'admin'),
+(29, 'eemty8091', 'myeverything2992', 'Emily Lyons', 'Business', '90092785347626', '', '11,550,786.00', 'yes', '1,070.00', 'Investment', '', '', '', '', '', '2020-04-15', '', 'enabled', 403746, '', 'What is the name of your best friend in high school', 'Linda', 'What is the name of your favorite pet', 'Lori', '', '', 'admin'),
+(30, 'abh203952', 'g746xq1', 'Susan K Heidlebaugh', 'Savings', '9016347213', '', '1,995.00', 'yes', '6,000,000.00', 'Bank Of America Investment', '', '', '', '', '', '2020-05-29', '', 'enabled', 463914, '', 'What is the first name of your best friend in high school', 'Sandy', 'What is your favorite color', 'Orange', '', '', 'admin'),
+(31, 'marina123', 'Lovedad5050', 'Marina Warren', 'Savings', '5567899', '', '2,890,099.00', 'yes', '401k', '200,000.00', '', '', '', '', '', '2020-07-15', '2020-07-15', 'enabled', 261949, '', 'Your best friend name', 'Anastasia', 'Fathers middle name', 'Allen', '', '', 'admin'),
+(32, 'Vera1985', 'Blessed2020', 'Vera Tennyson', 'Savings', '072978020201', '', '4,800,281.00', 'yes', '1,00.90', 'Investments ', 'United States Of Ame', 'Wyoming', '', '', '', '2020-07-24', '2020-07-21', 'enabled', 669977, 'Unilever Company Ltd', 'Name of first car', 'Corolla', 'Name of Childhood friend', 'Sandy', '', '', 'admin'),
+(33, 'randy73', 'construction@77', 'Randy Fischer', 'Business', '1007686026', '', '900,789.00', 'yes', '2,508,000.00', 'Investment Plan', '', '', '', '', '2020-08-06', '2020-08-06', '', 'enabled', 336264, '', 'What is your best friend name in high school', 'Michael', 'What is the name of your first car', 'Ford', '', '', 'admin'),
+(34, 'kapo01', 'pass2go#', 'Kapo Banks', 'Savings', '', '', '$23,445.00', 'yes', '$3,641,030.67', '401K', '', '', '', '', '2020-09-16', '2020-09-16', '2020-09-16', 'enabled', 986873, '', 'What', 'this', 'Who', 'me', '', '', 'admin'),
+(35, 'Client', 'passtonight', 'Some Name', 'Savings', '3245367485', '', '$44,536.00', 'yes', '$2,356,746.51', '401k', '', '', '', '', '2020-09-16', '2020-09-16', '', 'enabled', 985669, '', 'what', 'this', 'who', 'me', '', '', 'faith');
 
 -- --------------------------------------------------------
 
@@ -93,7 +97,8 @@ CREATE TABLE `site_tb` (
 --
 
 INSERT INTO `site_tb` (`dir`, `auth`, `admin`, `pass`, `routing_no`) VALUES
-(1, 'yes', 'admin', 'pass1234', 680392);
+(1, 'yes', 'admin', 'pass1234', 680392),
+(2, 'yes', 'faith', 'pass4321', 680392);
 
 -- --------------------------------------------------------
 
@@ -165,13 +170,13 @@ ALTER TABLE `transact_tb`
 -- AUTO_INCREMENT for table `db_users_tb`
 --
 ALTER TABLE `db_users_tb`
-  MODIFY `dir` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `dir` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `site_tb`
 --
 ALTER TABLE `site_tb`
-  MODIFY `dir` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `dir` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transact_tb`
